@@ -1,0 +1,24 @@
+package com.trustlens.backend;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/contact")
+@CrossOrigin(origins = "*")
+public class ContactController {
+
+    @Autowired
+    private ContactMessageRepository contactMessageRepository;
+
+    @PostMapping
+    public ResponseEntity<?> submitContactMessage(@RequestBody ContactMessage contactMessage) {
+        if (contactMessage.getName() == null || contactMessage.getEmail() == null || contactMessage.getMessage() == null) {
+            return ResponseEntity.badRequest().body("All fields are required.");
+        }
+        
+        contactMessageRepository.save(contactMessage);
+        return ResponseEntity.ok("Message submitted successfully.");
+    }
+}
