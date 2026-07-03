@@ -70,123 +70,25 @@ TrustLens solves these challenges through intelligent automation.
 
 ## 🛠️ Tech Stack
 
-```text
-TrustLens-main/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── .gitattributes
-│
-├── backend/
-│   ├── pom.xml
-│   ├── mvnw
-│   ├── mvnw.cmd
-│   ├── .gitattributes
-│   ├── .gitignore
-│   │
-│   ├── .mvn/
-│   │   └── wrapper/
-│   │       └── maven-wrapper.properties
-│   │
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/
-│   │   │   │   └── com/
-│   │   │   │       └── trustlens/
-│   │   │   │           └── backend/
-│   │   │   │               ├── BackendApplication.java
-│   │   │   │               ├── controllers/
-│   │   │   │               │   ├── AdminController.java
-│   │   │   │               │   ├── AuthController.java
-│   │   │   │               │   ├── ContactController.java
-│   │   │   │               │   ├── FakeNewsController.java
-│   │   │   │               │   └── ReviewController.java
-│   │   │   │               ├── models/
-│   │   │   │               │   ├── User.java
-│   │   │   │               │   ├── Review.java
-│   │   │   │               │   ├── AnalysisResult.java
-│   │   │   │               │   ├── FakeNews.java
-│   │   │   │               │   ├── FakeNewsResult.java
-│   │   │   │               │   ├── ContactMessage.java
-│   │   │   │               │   ├── ReviewRequest.java
-│   │   │   │               │   └── ReviewResponse.java
-│   │   │   │               ├── repositories/
-│   │   │   │               │   ├── UserRepository.java
-│   │   │   │               │   ├── ReviewRepository.java
-│   │   │   │               │   ├── AnalysisResultRepository.java
-│   │   │   │               │   ├── FakeNewsRepository.java
-│   │   │   │               │   ├── FakeNewsResultRepository.java
-│   │   │   │               │   └── ContactMessageRepository.java
-│   │   │   │               └── services/
-│   │   │   │                   └── ReviewService.java
-│   │   │   └── resources/
-│   │   │       ├── application.properties
-│   │   │       └── static/
-│   │   └── test/
-│   │       └── java/
-│   │           └── com/
-│   │               └── trustlens/
-│   │                   └── backend/
-│   │                       └── BackendApplicationTests.java
-│   │
-│   ├── ml/
-│   │   ├── ml_engine.py
-│   │   ├── train_model.py
-│   │   ├── train_fake_news.py
-│   │   ├── evaluate_all.py
-│   │   ├── test_cases.py
-│   │   ├── test_sentiment.py
-│   │   ├── test_v2.py
-│   │   ├── datasets/
-│   │   │   ├── Fake.csv
-│   │   │   ├── True.csv
-│   │   │   ├── gossipcop_fake.csv
-│   │   │   ├── gossipcop_real.csv
-│   │   │   ├── politifact_fake.csv
-│   │   │   ├── politifact_real.csv
-│   │   │   ├── twitter_training.csv
-│   │   │   └── twitter_validation.csv
-│   │   └── models/
-│   │       ├── sentiment_model.pkl
-│   │       ├── fake_news_model.pkl
-│   │       ├── fake_news_full.pkl
-│   │       └── fake_news_title.pkl
-│   │
-│   ├── SentimentServer.java
-│   └── trustlens_database.sql
-│
-├── frontend/
-│   ├── README.md
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── dashboard.html
-│   ├── sentiment.html
-│   ├── fake-news.html
-│   ├── fake-news-result.html
-│   ├── analyze.html
-│   ├── result.html
-│   ├── admin.html
-│   ├── about.html
-│   ├── contact.html
-│   ├── css/
-│   │   ├── style.css
-│   │   ├── responsive.css
-│   │   └── theme.css
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── auth.js
-│   │   ├── dashboard.js
-│   │   ├── validation.js
-│   │   ├── animation.js
-│   │   └── script.js
-│   └── assets/
-│       ├── images/
-│       └── icons/
-│
-└── docs/
-    ├── Final Java project Report.pdf
-    ├── API_DOCUMENTATION.md
-    ├── DEPLOYMENT.md
-    └── CONTRIBUTING.md
-```
+<div align="center">
+  <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java" alt="Java"/>
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.4.4-brightgreen?style=for-the-badge&logo=spring-boot" alt="Spring Boot"/>
+  <img src="https://img.shields.io/badge/Python-3.9+-yellow?style=for-the-badge&logo=python" alt="Python"/>
+  <img src="https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql" alt="MySQL"/>
+  <img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" alt="HTML5"/>
+  <img src="https://img.shields.io/badge/CSS-3-blue?style=for-the-badge&logo=css3" alt="CSS3"/>
+  <img src="https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript" alt="JavaScript"/>
+</div>
+
+| **Category**       | **Technologies** |
+|---------------------|------------------|
+| **Frontend**        | HTML5, CSS3, JavaScript |
+| **Backend**         | Java 17, Spring Boot 3.4.4, Spring Data JPA |
+| **Database**        | MySQL 8.0 |
+| **Machine Learning**| Python 3.9+, Scikit-learn, Pandas, NumPy, NLTK / VADER |
+| **API & Integration**| RESTful APIs, REST Template |
+| **Build & Dev Tools**| Maven, Git, Postman, VS Code |
+| **ML Service**      | Flask (Python) for serving models |
+| **Deployment**      | Netlify / Render (frontend & backend) |
+| **Version Control** | Git / GitHub |
+
