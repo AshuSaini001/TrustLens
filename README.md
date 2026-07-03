@@ -105,3 +105,43 @@ TrustLens solves these challenges through intelligent automation.
 ---
 
 ## 📁 Project Structure
+TrustLens-main/
+├── backend/ # Spring Boot Backend
+│ ├── src/main/java/... # Java source code
+│ │ ├── AdminController.java
+│ │ ├── AuthController.java
+│ │ ├── ReviewController.java
+│ │ ├── FakeNewsController.java
+│ │ ├── User.java
+│ │ ├── Review.java
+│ │ └── ... (other controllers & models)
+│ ├── src/main/resources/
+│ │ └── application.properties
+│ ├── ml/ # Python ML Module
+│ │ ├── ml_engine.py # ML service logic
+│ │ ├── train_model.py # Model training scripts
+│ │ ├── train_fake_news.py # Fake news training
+│ │ ├── sentiment_model.pkl # Trained sentiment model
+│ │ ├── fake_news_model.pkl # Trained fake news model
+│ │ └── *.csv # Training datasets
+│ ├── pom.xml # Maven dependencies
+│ └── trustlens_database.sql # Database schema
+│
+├── frontend/ # Static Frontend
+│ ├── css/
+│ │ └── style.css
+│ ├── js/
+│ │ ├── app.js # Main application logic
+│ │ ├── auth.js # Authentication logic
+│ │ └── validation.js # Form validation
+│ ├── index.html # Landing page
+│ ├── login.html
+│ ├── register.html
+│ ├── dashboard.html # Admin dashboard
+│ ├── sentiment.html # Sentiment analysis page
+│ ├── fake-news.html # Fake news detection page
+│ └── ... (other HTML pages)
+│
+├── .gitignore
+├── .gitattributes # Git LFS configuration
+└── README.md
