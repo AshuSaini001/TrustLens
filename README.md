@@ -70,78 +70,134 @@ TrustLens solves these challenges through intelligent automation.
 
 ## 🛠️ Tech Stack
 
-### Frontend
-| Technology | Purpose |
-|------------|---------|
-| **HTML5** | Page structure |
-| **CSS3** | Styling & responsiveness |
-| **JavaScript** | Dynamic functionality & API calls |
-
-### Backend
-| Technology | Purpose |
-|------------|---------|
-| **Java 17** | Core programming language |
-| **Spring Boot 3.4.4** | REST API framework |
-| **Spring Data JPA** | Database ORM |
-| **MySQL 8.0** | Relational database |
-
-### Machine Learning
-| Technology | Purpose |
-|------------|---------|
-| **Python 3.9+** | ML implementation |
-| **Scikit-learn** | Model training & classification |
-| **Pandas** | Data preprocessing |
-| **NumPy** | Numerical computations |
-| **NLTK / VADER** | NLP preprocessing |
-
-### Tools & Integration
-| Tool | Purpose |
-|------|---------|
-| **REST APIs** | Backend-ML communication |
-| **Postman** | API testing |
-| **Git** | Version control |
-| **VS Code** | Development IDE |
-
----
-
-## 📁 Project Structure
 TrustLens-main/
-├── backend/ # Spring Boot Backend
-│ ├── src/main/java/... # Java source code
-│ │ ├── AdminController.java
-│ │ ├── AuthController.java
-│ │ ├── ReviewController.java
-│ │ ├── FakeNewsController.java
-│ │ ├── User.java
-│ │ ├── Review.java
-│ │ └── ... (other controllers & models)
-│ ├── src/main/resources/
-│ │ └── application.properties
-│ ├── ml/ # Python ML Module
-│ │ ├── ml_engine.py # ML service logic
-│ │ ├── train_model.py # Model training scripts
-│ │ ├── train_fake_news.py # Fake news training
-│ │ ├── sentiment_model.pkl # Trained sentiment model
-│ │ ├── fake_news_model.pkl # Trained fake news model
-│ │ └── *.csv # Training datasets
-│ ├── pom.xml # Maven dependencies
-│ └── trustlens_database.sql # Database schema
 │
-├── frontend/ # Static Frontend
-│ ├── css/
-│ │ └── style.css
-│ ├── js/
-│ │ ├── app.js # Main application logic
-│ │ ├── auth.js # Authentication logic
-│ │ └── validation.js # Form validation
-│ ├── index.html # Landing page
-│ ├── login.html
-│ ├── register.html
-│ ├── dashboard.html # Admin dashboard
-│ ├── sentiment.html # Sentiment analysis page
-│ ├── fake-news.html # Fake news detection page
-│ └── ... (other HTML pages)
+├── README.md                                 # Project documentation
+├── LICENSE                                   # License file
+├── .gitignore                               # Git ignore rules
+├── .gitattributes                           # Git LFS configuration
 │
-├── .gitignore
-├── .gitattributes # Git LFS configuration
-└── README.md
+├── backend/                                 # Spring Boot Backend
+│   ├── pom.xml                             # Maven dependencies
+│   ├── mvnw                                 # Maven wrapper (Unix)
+│   ├── mvnw.cmd                            # Maven wrapper (Windows)
+│   ├── .gitattributes                      # Backend LFS config
+│   ├── .gitignore                           # Backend git ignore
+│   │
+│   ├── .mvn/                                # Maven wrapper folder
+│   │   └── wrapper/
+│   │       └── maven-wrapper.properties
+│   │
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── trustlens/
+│   │   │   │           └── backend/
+│   │   │   │               ├── BackendApplication.java          # Main Spring Boot class
+│   │   │   │               │
+│   │   │   │               ├── controllers/
+│   │   │   │               │   ├── AdminController.java        # Admin dashboard APIs
+│   │   │   │               │   ├── AuthController.java         # Auth APIs (register/login)
+│   │   │   │               │   ├── ContactController.java      # Contact form API
+│   │   │   │               │   ├── FakeNewsController.java    # Fake news detection APIs
+│   │   │   │               │   └── ReviewController.java      # Sentiment analysis APIs
+│   │   │   │               │
+│   │   │   │               ├── models/
+│   │   │   │               │   ├── User.java                  # User entity
+│   │   │   │               │   ├── Review.java                # Review entity
+│   │   │   │               │   ├── AnalysisResult.java        # Analysis result entity
+│   │   │   │               │   ├── FakeNews.java              # Fake news input entity
+│   │   │   │               │   ├── FakeNewsResult.java        # Fake news result entity
+│   │   │   │               │   ├── ContactMessage.java        # Contact message entity
+│   │   │   │               │   ├── ReviewRequest.java         # Review request DTO
+│   │   │   │               │   └── ReviewResponse.java        # Review response DTO
+│   │   │   │               │
+│   │   │   │               ├── repositories/
+│   │   │   │               │   ├── UserRepository.java
+│   │   │   │               │   ├── ReviewRepository.java
+│   │   │   │               │   ├── AnalysisResultRepository.java
+│   │   │   │               │   ├── FakeNewsRepository.java
+│   │   │   │               │   ├── FakeNewsResultRepository.java
+│   │   │   │               │   └── ContactMessageRepository.java
+│   │   │   │               │
+│   │   │   │               └── services/
+│   │   │   │                   └── ReviewService.java          # Business logic
+│   │   │   │
+│   │   │   └── resources/
+│   │   │       ├── application.properties                     # App configuration
+│   │   │       └── static/                                     # Static resources
+│   │   │
+│   │   └── test/
+│   │       └── java/
+│   │           └── com/
+│   │               └── trustlens/
+│   │                   └── backend/
+│   │                       └── BackendApplicationTests.java   # Unit tests
+│   │
+│   ├── ml/                                    # Python ML Module
+│   │   ├── ml_engine.py                      # Main ML service (Flask API)
+│   │   ├── train_model.py                    # Sentiment model training script
+│   │   ├── train_fake_news.py                # Fake news model training script
+│   │   ├── evaluate_all.py                   # Model evaluation script
+│   │   ├── test_cases.py                     # Test cases
+│   │   ├── test_sentiment.py                 # Sentiment test
+│   │   ├── test_v2.py                        # Additional tests
+│   │   │
+│   │   ├── datasets/                          # Training datasets
+│   │   │   ├── Fake.csv                      # Fake news dataset
+│   │   │   ├── True.csv                      # Real news dataset
+│   │   │   ├── gossipcop_fake.csv            # GossipCop fake news
+│   │   │   ├── gossipcop_real.csv            # GossipCop real news
+│   │   │   ├── politifact_fake.csv           # Politifact fake news
+│   │   │   ├── politifact_real.csv           # Politifact real news
+│   │   │   ├── twitter_training.csv          # Twitter training data
+│   │   │   └── twitter_validation.csv        # Twitter validation data
+│   │   │
+│   │   └── models/                            # Trained ML models (LFS)
+│   │       ├── sentiment_model.pkl           # Sentiment analysis model (LFS)
+│   │       ├── fake_news_model.pkl           # Fake news detection model (LFS)
+│   │       ├── fake_news_full.pkl            # Full fake news model (LFS)
+│   │       └── fake_news_title.pkl           # Title-based model (LFS)
+│   │
+│   ├── SentimentServer.java                  # Standalone sentiment server
+│   └── trustlens_database.sql                # MySQL database schema
+│
+├── frontend/                                 # Static Frontend
+│   ├── README.md                             # Frontend documentation
+│   │
+│   ├── index.html                            # Landing/home page
+│   ├── login.html                            # Login page
+│   ├── register.html                         # Registration page
+│   ├── dashboard.html                        # Admin dashboard
+│   ├── sentiment.html                        # Sentiment analysis page
+│   ├── fake-news.html                        # Fake news detection page
+│   ├── fake-news-result.html                 # Fake news results page
+│   ├── analyze.html                          # Analysis page
+│   ├── result.html                           # Results page
+│   ├── admin.html                            # Admin management page
+│   ├── about.html                            # About page
+│   ├── contact.html                          # Contact page
+│   │
+│   ├── css/
+│   │   ├── style.css                         # Main stylesheet
+│   │   ├── responsive.css                    # Responsive styles
+│   │   └── theme.css                         # Theme customization
+│   │
+│   ├── js/
+│   │   ├── app.js                            # Main application logic
+│   │   ├── auth.js                           # Authentication logic
+│   │   ├── dashboard.js                      # Dashboard functions
+│   │   ├── validation.js                     # Form validation
+│   │   ├── animation.js                      # Animations
+│   │   └── script.js                         # Additional scripts
+│   │
+│   └── assets/                                # Images and icons
+│       ├── images/
+│       └── icons/
+│
+└── docs/                                     # Documentation
+    ├── Final Java project Report.pdf          # Full project report
+    ├── API_DOCUMENTATION.md                   # API reference
+    ├── DEPLOYMENT.md                          # Deployment guide
+    └── CONTRIBUTING.md                        # Contributing guidelines
